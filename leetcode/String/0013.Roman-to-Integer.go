@@ -1,4 +1,4 @@
-package String
+package main
 
 var roman = map[string]int{
 	"I": 1,
