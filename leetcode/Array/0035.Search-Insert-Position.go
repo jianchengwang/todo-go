@@ -1,4 +1,4 @@
-package main
+package Array
 
 func searchInsert(nums []int, target int) int {
 	low, high := 0, len(nums) - 1

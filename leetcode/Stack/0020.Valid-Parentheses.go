@@ -1,4 +1,4 @@
-package main
+package Stack
 
 func isValid(s string) bool {
 	if len(s) == 0 {

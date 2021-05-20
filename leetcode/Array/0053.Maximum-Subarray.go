@@ -1,4 +1,4 @@
-package main
+package Array
 
 // 解法一 DP
 func maxSubArray(nums []int) int {
