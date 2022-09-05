@@ -22,4 +22,13 @@ func main()  {
 
 	n := map[string]int{"foo": 1, "bar": 2}
 	fmt.Println("map:", n)
+
+	m1 := map[string]interface{} {
+		"a": 1,
+		"b": true,
+		"c": map[string]string{"a1": "a1", "b1": "b1"},
+	}
+	for k,v := range m1 {
+		fmt.Println(k, v)
+	}
 }
