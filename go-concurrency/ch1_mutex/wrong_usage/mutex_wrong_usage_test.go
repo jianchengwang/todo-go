@@ -8,8 +8,8 @@ import (
 
 // Lock/Unlock 不是成对出现
 func TestLockUnLockNotComeInPairs(t *testing.T) {
-	var mut sync.Mutex
-	defer mut.Unlock()
+	var mu sync.Mutex
+	defer mu.Unlock()
 	t.Log("hello world!")
 }
 
@@ -20,7 +20,7 @@ type Counter struct {
 	Count int
 }
 
-func foo(c Counter)  {
+func foo(c Counter) {
 	c.Lock()
 	defer c.Unlock()
 	fmt.Println("in foo")
@@ -38,21 +38,20 @@ func TestCopyMutex(t *testing.T) {
 // 因为 Mutex 的实现中没有记录哪个 goroutine 拥有这把锁。
 // 理论上，任何 goroutine 都可以随意地 Unlock 这把锁，所以没办法计算重入条件
 // 所以不要把锁作为参数传递
-func foo1(l sync.Locker)  {
+func foo1(l sync.Locker) {
 	fmt.Println("in foo")
 	l.Lock()
 	bar1(l)
 	l.Unlock()
 }
 
-func bar1(l sync.Locker)  {
+func bar1(l sync.Locker) {
 	l.Lock()
 	fmt.Println("in bar")
 	l.Unlock()
 }
 
-func TestReentrant (t *testing.T) {
+func TestReentrant(t *testing.T) {
 	l := &sync.Mutex{}
 	foo1(l)
 }
-
