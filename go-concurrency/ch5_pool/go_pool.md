@@ -1,4 +1,4 @@
-## go_ppol
+## go_pool
 
 Go 是一个自动垃圾回收的编程语言，采用[三色并发标记算法](https://go.dev/blog/ismmkeynote)标记对象并回收
 
